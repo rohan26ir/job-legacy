@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../Context/AuthContext/AuthContext";
+import logo from '../assets/job-application.png'
 
 const Navbar = () => {
 
@@ -18,7 +19,7 @@ const Navbar = () => {
 
   const menuLink = <>
      <li>
-              <a>Item 1</a>
+              <Link to={'/'}>Home</Link>
             </li>
             <li>
               <details>
@@ -65,7 +66,11 @@ const Navbar = () => {
               {menuLink}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl font-bold">Job Legacy</a>
+          <Link to={'/'} className="btn btn-ghost text-xl font-bold"> 
+            <img
+            className="h-10" 
+            src={logo} 
+            alt="" />Job Legacy</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -76,10 +81,10 @@ const Navbar = () => {
         <div className="navbar-end gap-2">
           {
             user 
-            ? <p  onClick={handleSignOutUser}><button>Log Out</button></p>
+            ? <button className="bg-[#EA1A66] px-3 py-1 rounded-md" onClick={handleSignOutUser}><button>Log Out</button></button>
             : <Link to={'/register'}><button>Register</button></Link>
           }
-          <Link to={'/SignIn'}><button>Sign In</button></Link>
+          <Link to={'/SignIn'}><button className="bg-[#3e2fd8] px-3 py-1 rounded-md">Sign In</button></Link>
         </div>
       </div>
     </div>

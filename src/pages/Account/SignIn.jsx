@@ -2,9 +2,14 @@ import Lottie from 'lottie-react';
 import React, { useContext, useState } from 'react';
 import logInLottieData from '../../assets/Lottie/Animation - Log-in.json';
 import AuthContext from '../../Context/AuthContext/AuthContext';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
   const { signinUser } = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state || '/'
 
   const [error, setError] = useState(""); // For displaying error messages
   const [loading, setLoading] = useState(false); // Track loading state
@@ -21,6 +26,7 @@ const SignIn = () => {
     signinUser(email, password)
     .then(result => {
       console.log("Sign in:", result.user);
+      navigate(from);
     })
     .catch(error => {
       console.log(error);
