@@ -35,7 +35,7 @@ const Navbar = () => {
               </details>
             </li>
             <li>
-              <a>Item 3</a>
+            <Link to={'/myAplications'}>My Application</Link>
               </li>
   </>
   return (
